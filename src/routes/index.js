@@ -9,8 +9,7 @@ import routes from "./routes";
 // component
 const AppRoutes = () => {
 	return (
-		<>
-			<BrowserRouter>
+			<BrowserRouter >
 				<Switch>
 					{routes.map((route, i) => {
 						return (
@@ -21,7 +20,6 @@ const AppRoutes = () => {
 					})}
 				</Switch>
 			</BrowserRouter>
-		</>
 	);
 };
 

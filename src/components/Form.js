@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import "../assets/css/form.css";
 import * as Yup from "yup";
 import numeral from "numeral";
+import { Redirect } from "react-router-dom";
 let initialState = {
 	type_document: 0,
 	document: ""
@@ -10,7 +11,7 @@ let initialState = {
 const FormSearch = () => {
 	const [state, setState] = useState(initialState);
 	const [validate, setValidate] = useState(false);
-
+	const [redirect, setRedirect] = useState(false);
 	const validations = Yup.object({
 		type_document: Yup.number().positive().integer().required("Required"),
 		document: Yup.string().required("Required").min(10)
@@ -22,7 +23,7 @@ const FormSearch = () => {
 
 	const sendForm = (e) => {
 		e.preventDefault();
-		console.log("send", state);
+		setRedirect(true);
 	};
 
 	const validateForm = async () => {
@@ -77,6 +78,7 @@ const FormSearch = () => {
 					Buscar
 				</button>
 			</Form>
+			{redirect && <Redirect to={`/search/${state.type_document}/${state.document}`} />}
 		</div>
 	);
 };

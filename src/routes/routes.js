@@ -2,12 +2,12 @@ import FormSearch from "../components/Form";
 import Search from "../components/Search";
 const routes = [
 	{
-		layout: "/form",
-		component: FormSearch
+		layout: "/search/:type/:document",
+		component: Search
 	},
 	{
-		layout: "/search",
-		component: Search
+		layout: "/",
+		component: FormSearch
 	}
 ];
 
