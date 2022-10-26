@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import "../assets/css/form.css";
 import * as Yup from "yup";
-import numeral from 'numeral'
+import numeral from "numeral";
 let initialState = {
 	type_document: 0,
-	document: 0
+	document: ""
 };
 const FormSearch = () => {
 	const [state, setState] = useState(initialState);
@@ -63,18 +63,19 @@ const FormSearch = () => {
 						type="text"
 						value={numeral(state.document).format()}
 						onChange={setValue}
-                        maxlength="14"
+						maxLength="14"
 					/>
 				</Form.Group>
-				{validate && (
-					<button
-						className="submitButton"
-						type="submit"
-						onClick={sendForm}
-					>
-						Buscar
-					</button>
-				)}
+
+				<button
+					className="submitButton"
+					type="submit"
+					onClick={sendForm}
+					disabled={!validate}
+					style={{ backgroundColor: validate ? "#002c76" : "cdcdcd"}}
+				>
+					Buscar
+				</button>
 			</Form>
 		</div>
 	);
