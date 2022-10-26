@@ -73,7 +73,7 @@ const FormSearch = () => {
 					type="submit"
 					onClick={sendForm}
 					disabled={!validate}
-					style={{ backgroundColor: validate ? "#002c76" : "cdcdcd"}}
+					style={{ backgroundColor: validate ? "#002c76" : "#cdcdcd"}}
 				>
 					Buscar
 				</button>
